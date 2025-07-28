@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trouble or Accident - Misono International Language School</title>
+    <link rel="stylesheet" type="text/css" href="machine_style.css">
+    <script type="text/javascript" src="souji_script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-container">
+            <img src="images/logo.png" alt="School Logo" class="school-logo" onclick="navigateToHome()">
+            <h1 class="title" id="school-name">みそのインターナショナルランゲージスクール</h1>
+        </div>       
+
+        <!-- Centered Subtitle -->
+        <h2 class="subtitle" id="subtitle">掃除</h2>
+
+        <!-- Language Switch Buttons -->
+        <div class="language-switch">
+            <button class="lang-button english" onclick="switchLanguage('en')">English</button>
+            <button class="lang-button japanese" onclick="switchLanguage('jp')">日本語</button>
+        </div>
+
+        <!-- Assistance Text -->
+        <p class="assistance-text" id="assistance-text">
+            お困りの問題を選択してください。適切なサポートを提供いたします。
+        </p>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchBox" placeholder="問題を検索..." onkeyup="searchProblems()">
+
+        <!-- Trouble or Accident Table -->
+        <div id="problemTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th id="problem-header">問題</th>
+                    </tr>
+                </thead>
+                <tbody id="problemList">
+                    <tr><td>1</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1lgPcaEznu6W0-X3kVAvIQxp7kYudzUN6/view?usp=sharing')"><span class="en hidden">There is mold on the ceiling.</span><span class="jp">天井にカビが生えました。</span></a></td></tr>
+                    <tr><td>2</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1G6-WMWzTvfQzXMmohFxQ9i_Aou5p5eOQ/view?usp=sharing')"><span class="en hidden">How to dispose a garbage (1).</span><span class="jp">ごみの捨て方(1)。</span></a></td></tr>
+                    <tr><td>3</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1j6zA6m3vz9EsRqoJpb4ZUXozfFK_G0pU/view?usp=sharing')"><span class="en hidden">How to dispose a garbage (2).</span><span class="jp">ごみの捨て方(2)。</span></a></td></tr>
+                    <tr><td>4</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1qhBDAoX9-unqrdSrpumSYDL0f3Fsreu0/view?usp=sharing')"><span class="en hidden">How to dispose a garbage (3).</span><span class="jp">ごみの捨て方(3)。</span></a></td></tr>
+                    <tr><td>5</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1qHuqobCJRjW08qwCumIrmwwKVTtA5Omt/view?usp=sharing')"><span class="en hidden">I need to clean my room.</span><span class="jp">部屋を掃除します。</span></a></td></tr>
+                    <tr><td>6</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/15q3t0c0_Yrs0cvWfoDazqSo4zqEY-ymi/view?usp=sharing')"><span class="en hidden">I need to clean my Air-conditioner.</span><span class="jp">エアコンを掃除します。</span></a></td></tr>
+                    <tr><td>7</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1BR2vXbRJBHVFw1pPA7Hy1H5cJuxHw5ER/view?usp=sharing')"><span class="en hidden">I found a cockroach in the room.</span><span class="jp">部屋にゴキブリが出ました。</span></a></td></tr>
+                    <tr><td>8</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1XYv85Ltk2EiklLpMG_2FX4ob4woqbbqB/view?usp=sharing')"><span class="en hidden">A lot of flies appeared in the room.</span><span class="jp">部屋にハエがたくさん出ました。</span></a></td></tr>
+                    <tr><td>9</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/114En1tcstxCZ0ozkBKd-6ZYCAlsq5LDI/view?usp=sharing')"><span class="en hidden">I need to clean the Ventilation Fan.</span><span class="jp">換気扇を掃除します。</span></a></td></tr>
+                    <tr><td>10</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1Cc4OLEuU0sIEN05LJ3QH1bd3loJ_3jJS/view?usp=sharing')"><span class="en">How to Clean the Air Conditioner Filter</span><span class="jp hidden">エアコンフィルターの掃除の仕方</span></a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal for Displaying Google Drive Files -->
+        <div id="fileModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeDriveFile()">&times;</span>
+                <iframe id="driveFileFrame" width="100%" height="500px"></iframe>
+
+                <!-- Open in Google Drive Button -->
+                <a id="openDriveLink" class="open-drive" target="_blank">Open in Google Drive</a>
+            </div>
+        </div>
+
+        <!-- Back to Homepage Button -->
+        <div class="back-home-container">
+            <button class="lang-button back-home" id="back-home-btn" onclick="navigateToHome()">ホームページに戻る</button>
+        </div>
+    </div>
+</body>
+</html>

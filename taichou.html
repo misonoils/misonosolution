@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illness or Injury - Misono International Language School</title>
+    <link rel="stylesheet" type="text/css" href="machine_style.css">
+    <script type="text/javascript" src="taichou_script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-container">
+            <img src="images/logo.png" alt="School Logo" class="school-logo" onclick="navigateToHome()">
+            <h1 class="title" id="school-name">みそのインターナショナルランゲージスクール</h1>
+        </div>       
+
+        <!-- Centered Subtitle -->
+        <h2 class="subtitle" id="subtitle">体調不良。怪我</h2>
+
+        <!-- Language Switch Buttons -->
+        <div class="language-switch">
+            <button class="lang-button english" onclick="switchLanguage('en')">English</button>
+            <button class="lang-button japanese" onclick="switchLanguage('jp')">日本語</button>
+        </div>
+
+        <!-- Assistance Text -->
+        <p class="assistance-text" id="assistance-text">
+            お困りの問題を選択してください。適切なサポートを提供いたします。
+        </p>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchBox" placeholder="問題を検索..." onkeyup="searchProblems()">
+
+        <!-- Illness or Injury Table -->
+        <div id="problemTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th id="problem-header">問題</th>
+                    </tr>
+                </thead>
+                <tbody id="problemList">
+                    <!-- Problem List (25 Items) -->
+                    <tr><td>1</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/13UT5Ryr-4qdctJN499SJZSVAmtUy18rl/view?usp=sharing')"><span class="en hidden">My friend collapsed and is unconscious.</span><span class="jp">友だちが倒れました。意識がありません。</span></a></td></tr>
+                    <tr><td>2</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1M89G_LHcCp_4Zsk727oLOkwujwOIhjjE/view?usp=sharing')"><span class="en hidden">I was hit by a car.</span><span class="jp">自動車とぶつかりました。</span></a></td></tr>
+                    <tr><td>3</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1aXzMzVmKabbIC-MDM9zpJ6R0rv6RJvlh/view?usp=sharing')"><span class="en hidden">I bumped into a pedestrian.</span><span class="jp">歩行者にぶつかりました。</span></a></td></tr>
+                    <tr><td>4</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/182cA-ZhkdmgmTPPAENy_-yKct8w1T0-O/view?usp=sharing')"><span class="en hidden">I have a fever and a headache.</span><span class="jp">熱があります。頭が痛いです。</span></a></td></tr>
+                    <tr><td>5</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1W5qOqhsCRb5Wt5cXk38EAyXf5XAGpMTJ/view?usp=sharing')"><span class="en">I have a stomachache. (For females)</span><span class="jp hidden">お腹が痛いです。（女性）</span></a></td></tr>
+                    <tr><td>6</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/13CUGn6jUy4i1BFQDvaHH54omEUlfoLVJ/view?usp=sharing')"><span class="en">I have a headache.</span><span class="jp hidden">頭が痛いです。</span></a></td></tr>
+                    <tr><td>7</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1isaL_gf8cKyZ48lJxoUPFCWCGaNc4KPy/view?usp=sharing')"><span class="en">I can’t stop sneezing.</span><span class="jp hidden">くしゃみが止まりません。</span></a></td></tr>
+                    <tr><td>8</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1BGGy48LAgcYq31LEfEoiB3410IhcogXS/view?usp=sharing')"><span class="en">I have a stomachache and keep going to the toilet.</span><span class="jp hidden">お腹が痛いです。何度もトイレに行きます。</span></a></td></tr>
+                    <tr><td>9</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1japt9YDe8vKfFKF-K3QwCR4iCGnfv4Pd/view?usp=sharing')"><span class="en">I feel nauseous, and my stomach hurts.</span><span class="jp hidden">胃が気持ち悪いです。胃が痛いです。</span></a></td></tr>
+                    <tr><td>10</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1uvCVoGkIh9ZYKI_ReWiJd5528sYPlQNW/view?usp=sharing')"><span class="en">I got injured on my hands, fingers, or feet.</span><span class="jp hidden">手や、指や、足などにケガをしました。</span></a></td></tr>
+                    <tr><td>11</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1fxL4GjmfiDQQdFeeeFddc1RdOH22_0-p/view?usp=sharing')"><span class="en">I have a small burn on my hands, fingers, or feet.</span><span class="jp hidden">手や、指や、足などに軽いやけどをしました。</span></a></td></tr>
+                    <tr><td>12</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1CWM3EYexDff6qgSKvlorDXFdffFXEb9L/view?usp=sharing')"><span class="en">I have pain in my hands, fingers, or feet.</span><span class="jp hidden">手や、指や、足などを痛めました。</span></a></td></tr>
+                    <tr><td>13</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1Ymf0SkeCFLHbx3P4tQXhxeebfroO2tYV/view?usp=sharing')"><span class="en">My fever won’t go down even after taking medicine.</span><span class="jp hidden">薬を薬飲んでも、熱が下がりません。</span></a></td></tr>
+                    <tr><td>14</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/156uB-kpHfVH3m6-ZnNcXiLYbjkFsiLEO/view?usp=sharing')"><span class="en">I have a big injury, and there is a lot of bleeding.</span><span class="jp hidden">大きなケガをしました。血がたくさん出ています。</span></a></td></tr>
+                    <tr><td>15</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1UKDV_lISGW3sC1CoRqq7Si_IZQJd0ka1/view?usp=sharing')"><span class="en">My throat hurts, but it’s not a common cold.</span><span class="jp hidden">喉が痛いです。風じゃありません。</span></a></td></tr>
+                    <tr><td>16</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/18qfik2x-tKh5JiAm1WvB1lj_BYtspl7C/view?usp=sharing')"><span class="en">I have a headache and a blocked nose.</span><span class="jp hidden">頭が痛いです。鼻が詰まっています。</span></a></td></tr>
+                    <tr><td>17</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1OuF4n7w-Rgo6Dt_wdwl0vjIrh69Ugkyy/view?usp=sharing')"><span class="en hidden">My ear hurts.</span><span class="jp">耳が痛いです。</span></a></td></tr>
+                    <tr><td>18</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1J2S4wS1uGELu-jJSeMoNwgG8NLzt0k1R/view?usp=sharing')"><span class="en hidden">My eye hurts.</span><span class="jp">目が痛いです。</span></a></td></tr>
+                    <tr><td>19</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1sYs4gtGu-hj-qI_NXZUa2Ht3Qt8DKxO9/view?usp=sharing')"><span class="en hidden">I have a skin rash on my hands, feet, or body.</span><span class="jp">手や足、体に帯状疱疹ができました。</span></a></td></tr>
+                    <tr><td>20</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1O2yaKjES86XUFtWfu4fYubncatAFGoeR/view?usp=sharing')"><span class="en hidden">My tooth hurts.</span><span class="jp">歯が痛いです。</span></a></td></tr>
+                    <tr><td>21</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1FMK_fq7ZLBxDYaollI2bv9IYHCEVuy1b/view?usp=sharing')"><span class="en hidden">I have a strong headache, and my vision is blurry.</span><span class="jp">強い頭痛です。目があまり見えません。</span></a></td></tr>
+                    <tr><td>22</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1iUjd_eeNBW6uPe4gvSnOU07vUlc0qING/view?usp=sharing')"><span class="en hidden">My back and stomach hurt a lot.</span><span class="jp">とても背中とお腹が痛いです。</span></a></td></tr>
+                    <tr><td>23</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1-1QSODrU-TNbPCfHE7Yb4WUhVkpMs51R/view?usp=sharing')"><span class="en hidden">My chest and arms hurt.</span><span class="jp">ととも胸が痛いです。</span></a></td></tr>
+                    <tr><td>24</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1qq_huuOJ0wHmROJr7MR8Ahnr523OnQxZ/view?usp=sharing')"><span class="en hidden">My lungs hurt, and I keep coughing.</span><span class="jp">とても肺が痛いです。席が続きます。</span></a></td></tr>
+                    <tr><td>25</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1WgDVcqa0Vvfq0JoHsJEkZNSyBk_-P7La/view?usp=sharing')"><span class="en hidden">I need to prevent heatstroke.</span><span class="jp">熱中症を予防します。</span></a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal for Displaying Google Drive Files -->
+        <div id="fileModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeDriveFile()">&times;</span>
+                <iframe id="driveFileFrame" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+
+        <!-- Back to Homepage Button -->
+        <div class="back-home-container">
+            <button class="lang-button back-home" id="back-home-btn" onclick="navigateToHome()">ホームページに戻る</button>
+        </div>
+    </div>
+</body>
+</html>

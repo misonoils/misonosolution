@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trouble or Accident - Misono International Language School</title>
+    <link rel="stylesheet" type="text/css" href="machine_style.css">
+    <script type="text/javascript" src="jiken_script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-container">
+            <img src="images/logo.png" alt="School Logo" class="school-logo" onclick="navigateToHome()">
+            <h1 class="title" id="school-name">みそのインターナショナルランゲージスクール</h1>
+        </div>       
+
+        <!-- Centered Subtitle -->
+        <h2 class="subtitle" id="subtitle">事件。事故</h2>
+
+        <!-- Language Switch Buttons -->
+        <div class="language-switch">
+            <button class="lang-button english" onclick="switchLanguage('en')">English</button>
+            <button class="lang-button japanese" onclick="switchLanguage('jp')">日本語</button>
+        </div>
+
+        <!-- Assistance Text -->
+        <p class="assistance-text" id="assistance-text">
+            お困りの問題を選択してください。適切なサポートを提供いたします。
+        </p>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchBox" placeholder="問題を検索..." onkeyup="searchProblems()">
+
+        <!-- Trouble or Accident Table -->
+        <div id="problemTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th id="problem-header">問題</th>
+                    </tr>
+                </thead>
+                <tbody id="problemList">
+                    <tr><td>1</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1Sz5oFYJJ5p9Hx4MZi7bhO3HbI4aHI2dC/view?usp=sharing')"><span class="en hidden">I lost my bicycle.</span><span class="jp">自転車がありません。</span></a></td></tr>
+                    <tr><td>2</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1JleRylNfyKwJWMfrFbZEJ3TzWteGNOrD/view?usp=sharing')"><span class="en hidden">My money or wallet was stolen.</span><span class="jp">お金や財布を取られました。</span></a></td></tr>
+                    <tr><td>3</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/10FGQsH-lNUPdHWJ469KYSb8hcRkaAn1G/view?usp=sharing')"><span class="en hidden">My friend collapsed and is unconscious.</span><span class="jp">友だちが倒れました。意識がありません。</span></a></td></tr>
+                    <tr><td>4</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1RKdPnGVz6d8M58qN2jCbZjFKiTUfz7Qw/view?usp=sharing')"><span class="en hidden">I was hit by a car.</span><span class="jp">自動車とぶつかりました。</span></a></td></tr>
+                    <tr><td>5</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1-zE_NvpJY7BQXAb7r3ogP5xQdDL06bQO/view?usp=sharing')"><span class="en hidden">I bumped into a pedestrian.</span><span class="jp">歩行者にぶつかりました。</span></a></td></tr>
+                    <tr><td>6</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1H3Il3abIISUANtME6L-YOdXc1qq7C2F0/view?usp=sharing')"><span class="en hidden">I got into a fight with a stranger.</span><span class="jp">知らない人とけんかをしました。</span></a></td></tr>
+                    <tr><td>7</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1CU6wvjVBOi4bk37hIAoSDc4mQWCbUB-6/view?usp=sharing')"><span class="en hidden">I got into a fight with someone I know.</span><span class="jp">知っている人とけんかをしました。</span></a></td></tr>
+                    <tr><td>8</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1D2Mupk6iPF5KZFhRmnQNEYLbU4y_-MLS/view?usp=sharing')"><span class="en hidden">I lost my residence card.</span><span class="jp">在留カードをなくしました。</span></a></td></tr>
+                    <tr><td>9</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1Wa3JHyQQHT_7o1SWll1PySXuTqWL6Hh6/view?usp=sharing')"><span class="en hidden">Bad people are trying to involve me in something.</span><span class="jp">悪い人たちに誘われています。</span></a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal for Displaying Google Drive Files -->
+        <div id="fileModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeDriveFile()">&times;</span>
+                <iframe id="driveFileFrame" width="100%" height="500px"></iframe>
+
+                <!-- Open in Google Drive Button -->
+                <a id="openDriveLink" class="open-drive" target="_blank">Open in Google Drive</a>
+            </div>
+        </div>
+
+        <!-- Back to Homepage Button -->
+        <div class="back-home-container">
+            <button class="lang-button back-home" id="back-home-btn" onclick="navigateToHome()">ホームページに戻る</button>
+        </div>
+    </div>
+</body>
+</html>

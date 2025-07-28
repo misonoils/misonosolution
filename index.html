@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misono International Language School</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-container">
+            <img src="images/logo.png" alt="School Logo" class="school-logo" onclick="refreshHome()">
+            <h1 class="title" id="school-name">Misono International Language School</h1>
+        </div>       
+
+        <!-- Centered Subtitle -->
+        <h2 class="subtitle">List of Problems (問題リスト)</h2>
+
+        <!-- Assistance Text -->
+        <p class="assistance-text" id="assistance-text">
+            Kindly select the issue you are experiencing so that we can assist you better.
+        </p>
+
+        <!-- Language Switch Buttons (Centered) -->
+        <div class="language-switch">
+            <button class="lang-button english" onclick="switchLanguage('en')">English</button>
+            <button class="lang-button japanese" onclick="switchLanguage('jp')">日本語</button>
+        </div>
+
+        <!-- Problem Selection Buttons -->
+        <div class="buttons">
+            <button class="button" id="set1" onclick="navigateTo('machine_failures.html')">
+                <img src="images/kikai1.png" alt="Problem Set 1"> <span class="button-text">Machine Failures and Instructions.</span>
+            </button>
+            <button class="button" id="set2" onclick="navigateTo('taichou.html')">
+                <img src="images/taichou.png" alt="Problem Set 2"> <span class="button-text">Illness or Injury</span>
+            </button>
+            <button class="button" id="set3" onclick="navigateTo('mizu.html')">
+                <img src="images/mizu.png" alt="Problem Set 3"> <span class="button-text">Water Problems</span>
+            </button>
+            <button class="button" id="set4" onclick="navigateTo('jiken.html')">
+                <img src="images/jiko.png" alt="Problem Set 4"> <span class="button-text">Trouble or Accident</span>
+            </button>
+            <button class="button" id="set5" onclick="navigateTo('yubin.html')">
+                <img src="images/yubin.png" alt="Problem Set 5"> <span class="button-text">Postal and Courier</span>
+            </button>
+            <button class="button" id="set6" onclick="navigateTo('souji.html')">
+                <img src="images/gomi.png" alt="Problem Set 6"> <span class="button-text">Cleaning</span>
+            </button>
+            <button class="button" id="set7" onclick="navigateTo('gaichu.html')">
+                <img src="images/insect.png" alt="Problem Set 7"> <span class="button-text">Insect and Pest</span>
+            </button>
+            <button class="button" id="set8" onclick="navigateTo('siharai.html')">
+                <img src="images/okane.png" alt="Problem Set 8"> <span class="button-text">Payment</span>
+            </button>
+            <button class="button" id="set9" onclick="navigateTo('ningen.html')">
+                <img src="images/ningen.png" alt="Problem Set 9"> <span class="button-text">Human Relationships</span>  
+            </button>
+        </div>
+    </div>
+</body>
+</html>

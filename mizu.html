@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Problems - Misono International Language School</title>
+    <link rel="stylesheet" type="text/css" href="machine_style.css">
+    <script type="text/javascript" src="mizu_script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-container">
+            <img src="images/logo.png" alt="School Logo" class="school-logo" onclick="navigateToHome()">
+            <h1 class="title" id="school-name">みそのインターナショナルランゲージスクール</h1>
+        </div>       
+
+        <!-- Centered Subtitle -->
+        <h2 class="subtitle" id="subtitle">水回り</h2>
+
+        <!-- Language Switch Buttons -->
+        <div class="language-switch">
+            <button class="lang-button english" onclick="switchLanguage('en')">English</button>
+            <button class="lang-button japanese" onclick="switchLanguage('jp')">日本語</button>
+        </div>
+
+        <!-- Assistance Text -->
+        <p class="assistance-text" id="assistance-text">
+            お困りの問題を選択してください。適切なサポートを提供いたします。
+        </p>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchBox" placeholder="問題を検索..." onkeyup="searchProblems()">
+
+        <!-- Water Problems Table -->
+        <div id="problemTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th id="problem-header">問題</th>
+                    </tr>
+                </thead>
+                <tbody id="problemList">
+                    <tr><td>1</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1Skyhzh-nlsWDxqCbz-uOySQpdaGFMhIr/view?usp=sharing')"><span class="en hidden">Water Faucet is not working.</span><span class="jp">水が出ません。</span></a></td></tr>
+                    <tr><td>2</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1miMHCq3T38QjrmraNvjJTFTWZr6QCra6/view?usp=sharing')"><span class="en hidden">The toilet is blocked.</span><span class="jp">トイレが詰まりました。</span></a></td></tr>
+                    <tr><td>3</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/11pL9iJSFGvnKh24jwZm9aQb1DB7pXfSs/view?usp=sharing')"><span class="en hidden">I need to prevent the bathtub drain from getting blocked.</span><span class="jp">お風呂の排水口が詰まらないようにする。</span></a></td></tr>
+                    <tr><td>4</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/19udKar4jR8h7Zab0Dgwp9L0uCJ9wxnuG/view?usp=sharing')"><span class="en hidden">I need to prevent the kitchen drain from getting blocked.</span><span class="jp">流しの排水口が詰まらないようにする。</span></a></td></tr>
+                    <tr><td>5</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/18qPGP-MixZXJRwQCICSkI_LFiJ4j6blA/view?usp=sharing')"><span class="en">There is no hot water.</span><span class="jp hidden">お湯が出ません。</span></a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal for Displaying Google Drive Files -->
+        <div id="fileModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeDriveFile()">&times;</span>
+                <iframe id="driveFileFrame" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+
+        <!-- Back to Homepage Button -->
+        <div class="back-home-container">
+            <button class="lang-button back-home" id="back-home-btn" onclick="navigateToHome()">ホームページに戻る</button>
+        </div>
+    </div>
+</body>
+</html>

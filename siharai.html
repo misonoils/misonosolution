@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trouble or Accident - Misono International Language School</title>
+    <link rel="stylesheet" type="text/css" href="machine_style.css">
+    <script type="text/javascript" src="siharai_script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-container">
+            <img src="images/logo.png" alt="School Logo" class="school-logo" onclick="navigateToHome()">
+            <h1 class="title" id="school-name">みそのインターナショナルランゲージスクール</h1>
+        </div>       
+
+        <!-- Centered Subtitle -->
+        <h2 class="subtitle" id="subtitle">支払い</h2>
+
+        <!-- Language Switch Buttons -->
+        <div class="language-switch">
+            <button class="lang-button english" onclick="switchLanguage('en')">English</button>
+            <button class="lang-button japanese" onclick="switchLanguage('jp')">日本語</button>
+        </div>
+
+        <!-- Assistance Text -->
+        <p class="assistance-text" id="assistance-text">
+            お困りの問題を選択してください。適切なサポートを提供いたします。
+        </p>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchBox" placeholder="問題を検索..." onkeyup="searchProblems()">
+
+        <!-- Trouble or Accident Table -->
+        <div id="problemTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th id="problem-header">問題</th>
+                    </tr>
+                </thead>
+                <tbody id="problemList">
+                    <tr><td>1</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/1DOJw6SuuB2IK5H-SS7AU-fo2j7BI806x/view?usp=sharing')"><span class="en hidden">The lights won't turn on.</span><span class="jp">電気がつきません。</span></a></td></tr>
+                    <tr><td>2</td><td><a href="#" onclick="openDriveFile('https://drive.google.com/file/d/13O-4ZVnpCLPd9ayoM46GFXcGYyCPbG6j/view?usp=sharing')"><span class="en hidden">Stop spending unnecessarily.</span><span class="jp">無駄遣いをやめましょう。</span></a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal for Displaying Google Drive Files -->
+        <div id="fileModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeDriveFile()">&times;</span>
+                <iframe id="driveFileFrame" width="100%" height="500px"></iframe>
+
+                <!-- Open in Google Drive Button -->
+                <a id="openDriveLink" class="open-drive" target="_blank">Open in Google Drive</a>
+            </div>
+        </div>
+
+        <!-- Back to Homepage Button -->
+        <div class="back-home-container">
+            <button class="lang-button back-home" id="back-home-btn" onclick="navigateToHome()">ホームページに戻る</button>
+        </div>
+    </div>
+</body>
+</html>
