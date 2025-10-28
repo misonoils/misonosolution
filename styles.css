@@ -1,15 +1,49 @@
+/* ===============================
+   Misono ILS – styles.css (Pro)
+   Non-breaking polish of your CSS
+   – Same classes, same colors –
+================================ */
+
+/* ---- Base / Page ---- */
+:root{
+  /* keep your brand colors */
+  --accent-orange: #ff4500;
+  --accent-blue: #1e90ff;
+  --bg: #f4f4f4;
+  --surface: #ffffff;
+  --text: #111;
+  --muted: #444;
+  --border: #e6e6e6;
+
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
 /* General Page Styling */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* Main Container */
 .container {
     width: 80%;
     max-width: 1200px; /* Ensures a maximum width for stability */
-    margin: auto;
+    margin: 28px auto;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
 }
 
 /* Header Section - Perfect Alignment */
@@ -27,39 +61,55 @@ body {
     width: 90px;
     height: auto;
     max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.school-logo:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0,0,0,.12);
+}
+.school-logo:focus{
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(30,144,255,.25);
 }
 
 /* Title Styling */
 .title {
     font-size: 36px;
-    color: #ff4500;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: var(--accent-orange); /* #ff4500 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     margin: 0;
     text-align: left;
     white-space: nowrap; /* Prevents text from wrapping */
+    letter-spacing: .2px;
+    font-weight: 800;
 }
 
 /* Subtitle (Centered) */
 .subtitle {
     font-size: 24px;
-    color: #1e90ff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    margin-bottom: 5px;
+    color: var(--accent-blue); /* #1e90ff */
+    text-shadow: 1px 1px 3px rgba(0,0,0,.12);
+    margin: 10px 0 6px;
     text-align: center;
     display: block;
+    font-weight: 700;
 }
 
 /* Assistance Text (Placed Closer to Subtitle) */
 .assistance-text {
     font-size: 18px;
     font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    margin-top: 0px; /* Removed extra space */
+    text-shadow: 0 1px 1px rgba(0,0,0,.18);
+    margin-top: 0; /* Removed extra space */
     text-align: center;
     max-width: 100%;
     background: linear-gradient(90deg, #ffcc00, #ff6666, #66ccff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding: 6px 8px;
 }
 
 /* Centered Language Switch Buttons */
@@ -67,6 +117,10 @@ body {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .lang-button {
@@ -75,9 +129,20 @@ body {
     border: none;
     cursor: pointer;
     color: white;
-    border-radius: 8px;
+    border-radius: 999px; /* pill look */
     font-weight: bold;
     margin: 5px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.12);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.lang-button:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(0,0,0,.16);
+    filter: brightness(1.06);
+}
+.lang-button:focus{
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255,165,0,.22);
 }
 
 .english {
@@ -93,7 +158,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 16px;
     margin-top: 20px;
 }
 
@@ -107,25 +172,54 @@ body {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    border: 3px solid black;
+    border: 2px solid #000; /* slightly lighter border for refinement */
     border-radius: 15px;
     background-color: white;
     color: black;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+.button:hover{
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 16px 30px rgba(0,0,0,.14);
+    border-color: var(--accent-blue);
+}
+.button:focus{
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(30,144,255,.2);
 }
 
 .button img {
     width: 150px;
     height: 150px;
     object-fit: contain;
-    border-radius: 5px;
+    border-radius: 8px; /* softened */
+    border: 1px solid var(--border);
+    background: #fff;
 }
 
 .button-text {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 22px; /* a touch smaller for balance */
     font-family: 'Arial Black', Gadget, sans-serif;
     color: black;
+    line-height: 1.2;
+    margin-top: 6px;
+}
+
+/* Optional search box if used on home */
+#searchBox{
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    outline: none;
+    transition: border-color .18s, box-shadow .18s;
+    margin: 10px 0 16px;
+}
+#searchBox:focus{
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 4px rgba(30,144,255,.15);
 }
 
 /* 📱 Mobile-Friendly Adjustments */
@@ -139,7 +233,7 @@ body {
     /* Title in Two Lines for Mobile */
     .title {
         font-size: 24px; /* Smaller title */
-        max-width: 350px; /* Restricts width to break into two lines */
+        max-width: 380px; /* Slightly wider for better wrapping */
         word-wrap: break-word; /* Ensures wrapping */
         text-align: center; /* Centered in mobile */
         white-space: normal; /* Allows line breaks */
@@ -149,26 +243,36 @@ body {
         width: 70px; /* Slightly smaller logo for mobile */
     }
 
-    /* Adjust Buttons for Two Per Row in Mobile */
-    .buttons {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Ensures two buttons per row */
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-    }
+    /* Make a tidy 3-per-row grid on mobile */
+.buttons{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
 
-    .button {
-        width: 120px; /* Adjust button size for mobile */
-        height: 120px;
-    }
+.button{
+  width: 100%;
+  height: 160px;              /* tidy card height */
+  padding: 10px;
+  flex-direction: column;     /* ⬅️ stack vertically */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
 
-    .button img {
-        width: 80px; /* Smaller image size */
-        height: 80px;
-    }
+.button img{
+  width: 86px;                /* good mobile size */
+  height: 86px;
+  object-fit: contain;
+  border-radius: 8px;
+}
 
-    .button-text {
-        font-size: 12px;
-    }
+.button-text{
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;        /* allow wrapping */
+  word-break: keep-all;       /* nicer Japanese wrapping */
+}
 }

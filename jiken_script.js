@@ -1,75 +1,96 @@
-// Function to switch between Japanese and English
+// --- Shared language helpers (inner pages) ---
+function getSavedLang() {
+  const url = new URL(window.location.href);
+  const fromQuery = url.searchParams.get('lang');
+  if (fromQuery === 'en' || fromQuery === 'jp') {
+    localStorage.setItem('lang', fromQuery);
+    return fromQuery;
+  }
+  const saved = localStorage.getItem('lang');
+  return (saved === 'en' || saved === 'jp') ? saved : 'jp'; // default JP
+}
+
 function switchLanguage(lang) {
-    if (lang === 'jp') {
-        document.getElementById("school-name").innerHTML = "みそのインターナショナルランゲージスクール";
-        document.getElementById("subtitle").innerHTML = "事件。事故";
-        document.getElementById("problem-header").innerHTML = "問題";
-        document.getElementById("searchBox").placeholder = "問題を検索...";
-        document.getElementById("back-home-btn").innerHTML = "ホームページに戻る";
-
-        let assistanceText = document.getElementById("assistance-text");
-        if (assistanceText) {
-            assistanceText.innerHTML = "お困りの問題を選択してください。適切なサポートを提供いたします。";
-        }
-
-        document.querySelectorAll(".en").forEach(el => el.classList.add("hidden"));
-        document.querySelectorAll(".jp").forEach(el => el.classList.remove("hidden"));
-    } else {
-        document.getElementById("school-name").innerHTML = "Misono International Language School";
-        document.getElementById("subtitle").innerHTML = "Trouble or Accident";
-        document.getElementById("problem-header").innerHTML = "Problem";
-        document.getElementById("searchBox").placeholder = "Search problems...";
-        document.getElementById("back-home-btn").innerHTML = "Back to Homepage";
-
-        let assistanceText = document.getElementById("assistance-text");
-        if (assistanceText) {
-            assistanceText.innerHTML = "Kindly select the issue you are experiencing so that we can assist you better.";
-        }
-
-        document.querySelectorAll(".jp").forEach(el => el.classList.add("hidden"));
-        document.querySelectorAll(".en").forEach(el => el.classList.remove("hidden"));
-    }
+  if (lang !== 'en' && lang !== 'jp') return;
+  localStorage.setItem('lang', lang);
+  applyPageLanguage(lang);
 }
 
-// Open Google Drive File in Modal
+// Apply text + show/hide EN/JP spans
+function applyPageLanguage(lang) {
+  if (lang === 'jp') {
+    document.getElementById("school-name").textContent = "みそのインターナショナルランゲージスクール";
+    document.getElementById("subtitle").textContent = "事件・事故"; // fixed punctuation
+    document.getElementById("problem-header").textContent = "問題";
+    document.getElementById("searchBox").placeholder = "問題を検索...";
+    const backBtn = document.getElementById("back-home-btn");
+    backBtn && (backBtn.textContent = "ホームページに戻る");
+
+    const assistanceText = document.getElementById("assistance-text");
+    assistanceText && (assistanceText.textContent = "お困りの問題を選択してください。適切なサポートを提供いたします。");
+
+    document.querySelectorAll(".en").forEach(el => el.classList.add("hidden"));
+    document.querySelectorAll(".jp").forEach(el => el.classList.remove("hidden"));
+  } else {
+    document.getElementById("school-name").textContent = "Misono International Language School";
+    document.getElementById("subtitle").textContent = "Trouble or Accident";
+    document.getElementById("problem-header").textContent = "Problem";
+    document.getElementById("searchBox").placeholder = "Search problems...";
+    const backBtn = document.getElementById("back-home-btn");
+    backBtn && (backBtn.textContent = "Back to Homepage");
+
+    const assistanceText = document.getElementById("assistance-text");
+    assistanceText && (assistanceText.textContent = "Kindly select the issue you are experiencing so that we can assist you better.");
+
+    document.querySelectorAll(".jp").forEach(el => el.classList.add("hidden"));
+    document.querySelectorAll(".en").forEach(el => el.classList.remove("hidden"));
+  }
+
+  // Make solution link language-aware when both URLs are provided
+  document.querySelectorAll('#problemList a[data-en][data-jp]').forEach(link => {
+    const targetUrl = (lang === 'en') ? link.getAttribute('data-en') : link.getAttribute('data-jp');
+    link.onclick = function (e) {
+      e.preventDefault();
+      openDriveFile(targetUrl);
+    };
+  });
+}
+
+// --- Google Drive file modal ---
 function openDriveFile(url) {
-    let fileID = url.split('/d/')[1].split('/view')[0];
-    let embedURL = `https://drive.google.com/file/d/${fileID}/preview`;
+  const fileID = (url && url.includes('/d/')) ? url.split('/d/')[1].split('/')[0] : null;
+  const embedURL = fileID ? `https://drive.google.com/file/d/${fileID}/preview` : url;
+  document.getElementById("driveFileFrame").src = embedURL;
+  document.getElementById("fileModal").style.display = "block";
 
-    document.getElementById("driveFileFrame").src = embedURL;
-    document.getElementById("fileModal").style.display = "block";
-    document.getElementById("openDriveLink").href = url;
+  // optional: if you have a "Open in Drive" anchor with id="openDriveLink"
+  const a = document.getElementById("openDriveLink");
+  if (a) a.href = url;
 }
 
-// Close Modal
 function closeDriveFile() {
-    document.getElementById("fileModal").style.display = "none";
-    document.getElementById("driveFileFrame").src = "";
+  document.getElementById("fileModal").style.display = "none";
+  document.getElementById("driveFileFrame").src = "";
 }
 
-// Navigate Back to Homepage
+// --- Navigate back to homepage (preserve language) ---
 function navigateToHome() {
-    window.location.href = "index.html";
+  const lang = getSavedLang();
+  const sep = "index.html".includes("?") ? "&" : "?";
+  window.location.href = `index.html${sep}lang=${lang}`;
 }
 
-// Ensure Japanese is Always Default
-window.onload = function() {
-    switchLanguage('jp');
-};
-
-// Search Function
+// --- Search across both languages ---
 function searchProblems() {
-    let input = document.getElementById("searchBox").value.trim().toLowerCase();
-    let rows = document.querySelectorAll("#problemList tr");
-
-    rows.forEach(row => {
-        let englishText = row.querySelector(".en").textContent.toLowerCase();
-        let japaneseText = row.querySelector(".jp").textContent.toLowerCase();
-
-        if (englishText.includes(input) || japaneseText.includes(input)) {
-            row.style.display = "";
-        } else {
-            row.style.display = "none";
-        }
-    });
+  const input = document.getElementById("searchBox").value.trim().toLowerCase();
+  document.querySelectorAll("#problemList tr").forEach(row => {
+    const en = row.querySelector(".en")?.textContent.toLowerCase() || "";
+    const jp = row.querySelector(".jp")?.textContent.toLowerCase() || "";
+    row.style.display = (en.includes(input) || jp.includes(input)) ? "" : "none";
+  });
 }
+
+// --- Initialize on load (no forced JP) ---
+window.addEventListener('DOMContentLoaded', () => {
+  applyPageLanguage(getSavedLang());
+});
